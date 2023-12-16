@@ -74,8 +74,8 @@
 				<div class="container">
 					<div class="row fullscreen d-flex align-items-center justify-content-between">
 						<div class="banner-content col-lg-6 col-md-6">
-							{% if result %}
-							 <h1>fair amount is {{result}}</h1>
+							{% if amount %}
+							 <h1>fair amount is {{amount}}</h1>
 							{% endif %}
 						</div>
 						<div class="col-lg-4 col-md-6 header-right">
@@ -85,20 +85,10 @@
 								{% csrf_token %}
 								<div class="from-group">
 									<input class="form-control txt-field" type="text" name="pickup_longitude" placeholder="pickup_longitude" onfocus="this.placeholder = ''" onblur="this.placeholder = 'pickup_longitude'">
-									<input class="form-control txt-field" type="text" name="pickup_latitude" placeholder="pickup_latitude" onfocus="this.placeholder = ''" onblur="this.placeholder = 'pickup_latitude'">
 									<input class="form-control txt-field" type="text" name="dropoff_longitude" placeholder="dropoff_longitude"  onfocus="this.placeholder = ''" onblur="this.placeholder = 'dropoff_longitude'">
-									<input class="form-control txt-field" type="text" name="dropoff_latitude" placeholder="dropoff_latitude" onfocus="this.placeholder = ''" onblur="this.placeholder = 'dropoff_latitude'">
-									<input class="form-control txt-field" type="text" name="hour" placeholder="hour" onfocus="this.placeholder = ''" onblur="this.placeholder = 'hour'">
-									<input class="form-control txt-field" type="text" name="month" placeholder="month" onfocus="this.placeholder = ''" onblur="this.placeholder = 'month'">
-									<input class="form-control txt-field" type="text" name="weekday" placeholder="weekday" onfocus="this.placeholder = ''" onblur="this.placeholder = 'weekday'">
-									<input class="form-control txt-field" type="text" name="year" placeholder="year" onfocus="this.placeholder = ''" onblur="this.placeholder = 'year'">
-									<input class="form-control txt-field" type="text" name="jfk_dist" placeholder="jfk_dist" onfocus="this.placeholder = ''" onblur="this.placeholder = 'jfk_dist'">
 									<input class="form-control txt-field" type="text" name="ewr_dist" placeholder="ewr_dist" onfocus="this.placeholder = ''" onblur="this.placeholder = 'ewr_dist'">
-									<input class="form-control txt-field" type="text" name="lga_dist" placeholder="lga_dist" onfocus="this.placeholder = ''" onblur="this.placeholder = 'lga_dist'">
-									<input class="form-control txt-field" type="text" name="sol_dist" placeholder="sol_dist" onfocus="this.placeholder = ''" onblur="this.placeholder = 'sol_dist'">
 									<input class="form-control txt-field" type="text" name="nyc_dist" placeholder="nyc_dist" onfocus="this.placeholder = ''" onblur="this.placeholder = 'nyc_dist'">
-									<input class="form-control txt-field" type="text" name="distance" placeholder="distance" onfocus="this.placeholder = ''" onblur="this.placeholder = 'distance'">
-									<input class="form-control txt-field" type="text" name="bearing" placeholder="bearing" onfocus="this.placeholder = ''" onblur="this.placeholder = 'bearing'">	    
+									<input class="form-control txt-field" type="text" name="distance" placeholder="distance" onfocus="this.placeholder = ''" onblur="this.placeholder = 'distance'"> 
 								<div class="form-group">
 									
 									<button class="btn btn-default btn-lg btn-block text-center text-uppercase">Pred</button>

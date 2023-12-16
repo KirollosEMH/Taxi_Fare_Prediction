@@ -3,33 +3,30 @@ from django.http import HttpResponse
 from django.template import loader
 from django.http import Http404
 import numpy as np
-from joblib import load
-model = load('./savedModel/xgb.joblib')
-scaler = load('./savedModel/scaler.joblib')
+import pandas as pd
+import pickle
+
+with open("./savedModel/model.pkl", 'rb') as model_file:
+    model = pickle.load(model_file)
 # Create your views here.
 
 def index(request):
     if request.method == 'POST':
-        pickup_longitude = request.POST['pickup_longitude']
-        pickup_latitude = request.POST['pickup_latitude']
-        dropoff_longitude = request.POST['dropoff_longitude']
-        dropoff_latitude = request.POST['dropoff_latitude']
-        hour = request.POST['hour']
-        month = request.POST['month']
-        weekday = request.POST['weekday']
-        year = request.POST['year']
-        jfk_dist = request.POST['jfk_dist']
-        ewr_dist = request.POST['ewr_dist']
-        lga_dist = request.POST['lga_dist']
-        sol_dist = request.POST['sol_dist']
-        nyc_dist = request.POST['nyc_dist']
-        distance = request.POST['distance']
-        bearing = request.POST['bearing']
+        distance = float(request.POST['distance'])
+        dropoff_longitude = float(request.POST['dropoff_longitude'])
+        ewr_dist = float(request.POST['ewr_dist'])
+        nyc_dist = float(request.POST['nyc_dist'])
+        pickup_longitude = float(request.POST['pickup_longitude'])
         
-        feartures = [[pickup_longitude, pickup_latitude, dropoff_longitude,
-                     dropoff_latitude, hour, month, weekday, year, jfk_dist,
-                     ewr_dist, lga_dist, sol_dist, nyc_dist, distance, bearing]]
-        
-        amount = model.predict(scaler.fit_transform(feartures))
-        return render(request, 'templates/index.html', {'result' : amount})
+        feartures = pd.DataFrame({
+            'distance': [distance],
+            'dropoff_longitude': [dropoff_longitude],
+            'pickup_longitude': [pickup_longitude],
+            'ewr_dist': [ewr_dist],
+            'nyc_dist': [nyc_dist]
+            })
+
+        amount = model.predict(feartures)
+
+        return render(request, 'templates/index.html', {'amount' : amount})
     return render(request, 'templates/index.html')
