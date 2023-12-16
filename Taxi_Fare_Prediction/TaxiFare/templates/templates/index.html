@@ -74,54 +74,34 @@
 				<div class="container">
 					<div class="row fullscreen d-flex align-items-center justify-content-between">
 						<div class="banner-content col-lg-6 col-md-6">
-							<h6 class="text-white">Need a ride? just call</h6>
-							<h1 class="text-uppercase">
-								911 999 911				
-							</h1>
-							<p class="pt-10 pb-10 text-white">
-								Whether you enjoy city breaks or extended holidays in the sun, you can always improve your travel experiences by staying in a small.
-							</p>
-							<a href="#" class="primary-btn text-uppercase">Call for taxi</a>
+							{% if result %}
+							 <h1>fair amount is {{result}}</h1>
+							{% endif %}
 						</div>
 						<div class="col-lg-4 col-md-6 header-right">
-							<h4 class="pb-30">Book Your Taxi Online!</h4>
-							<form class="form">
+							
+							<h4 class="pb-30">fair pred</h4>
+							<form action ="", method="POST">
+								{% csrf_token %}
 								<div class="from-group">
-									<input class="form-control txt-field" type="text" name="name" placeholder="Your name"  onfocus="this.placeholder = ''" onblur="this.placeholder = 'Your name'">
-									<input class="form-control txt-field" type="email" name="email" placeholder="Email address" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Email address'">
-									<input class="form-control txt-field" type="tel" name="phone" placeholder="Phone number" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Phone number'">
-								</div>								
-								<div class="form-group">
-									<div class="default-select" id="default-select">
-										<select>
-											<option value="" disabled selected hidden>From Destination</option>
-											<option value="1">Destination One</option>
-											<option value="2">Destination Two</option>
-											<option value="3">Destination Three</option>
-										</select>
-									</div>
-								</div>
-								<div class="form-group">
-									<div class="default-select" id="default-select2">
-										<select>
-											<option value="" disabled selected hidden>To Destination</option>
-											<option value="1">Destination One</option>
-											<option value="2">Destination Two</option>
-											<option value="3">Destination Three</option>
-										</select>
-									</div>
-								</div>							    
-								<div class="form-group">
-									<div class="input-group dates-wrap">                                              
-										<input id="datepicker2" class="dates form-control" placeholder="Date & time" type="text">                        
-										<div class="input-group-prepend">
-											<span  class="input-group-text"><span class="lnr lnr-calendar-full"></span></span>
-										</div>											
-									</div>
-								</div>							    
+									<input class="form-control txt-field" type="text" name="pickup_longitude" placeholder="pickup_longitude" onfocus="this.placeholder = ''" onblur="this.placeholder = 'pickup_longitude'">
+									<input class="form-control txt-field" type="text" name="pickup_latitude" placeholder="pickup_latitude" onfocus="this.placeholder = ''" onblur="this.placeholder = 'pickup_latitude'">
+									<input class="form-control txt-field" type="text" name="dropoff_longitude" placeholder="dropoff_longitude"  onfocus="this.placeholder = ''" onblur="this.placeholder = 'dropoff_longitude'">
+									<input class="form-control txt-field" type="text" name="dropoff_latitude" placeholder="dropoff_latitude" onfocus="this.placeholder = ''" onblur="this.placeholder = 'dropoff_latitude'">
+									<input class="form-control txt-field" type="text" name="hour" placeholder="hour" onfocus="this.placeholder = ''" onblur="this.placeholder = 'hour'">
+									<input class="form-control txt-field" type="text" name="month" placeholder="month" onfocus="this.placeholder = ''" onblur="this.placeholder = 'month'">
+									<input class="form-control txt-field" type="text" name="weekday" placeholder="weekday" onfocus="this.placeholder = ''" onblur="this.placeholder = 'weekday'">
+									<input class="form-control txt-field" type="text" name="year" placeholder="year" onfocus="this.placeholder = ''" onblur="this.placeholder = 'year'">
+									<input class="form-control txt-field" type="text" name="jfk_dist" placeholder="jfk_dist" onfocus="this.placeholder = ''" onblur="this.placeholder = 'jfk_dist'">
+									<input class="form-control txt-field" type="text" name="ewr_dist" placeholder="ewr_dist" onfocus="this.placeholder = ''" onblur="this.placeholder = 'ewr_dist'">
+									<input class="form-control txt-field" type="text" name="lga_dist" placeholder="lga_dist" onfocus="this.placeholder = ''" onblur="this.placeholder = 'lga_dist'">
+									<input class="form-control txt-field" type="text" name="sol_dist" placeholder="sol_dist" onfocus="this.placeholder = ''" onblur="this.placeholder = 'sol_dist'">
+									<input class="form-control txt-field" type="text" name="nyc_dist" placeholder="nyc_dist" onfocus="this.placeholder = ''" onblur="this.placeholder = 'nyc_dist'">
+									<input class="form-control txt-field" type="text" name="distance" placeholder="distance" onfocus="this.placeholder = ''" onblur="this.placeholder = 'distance'">
+									<input class="form-control txt-field" type="text" name="bearing" placeholder="bearing" onfocus="this.placeholder = ''" onblur="this.placeholder = 'bearing'">	    
 								<div class="form-group">
 									
-									<button class="btn btn-default btn-lg btn-block text-center text-uppercase">Make reservation</button>
+									<button class="btn btn-default btn-lg btn-block text-center text-uppercase">Pred</button>
 								</div>
 							</form>
 						</div>											
